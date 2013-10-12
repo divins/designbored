@@ -15,13 +15,15 @@ h1
   color: orange
 
 label
-  visibility: hidden
+  opacity: 0
   position: absolute
   top: -3px
   left: 0px
   font-size: 9px
 
+
 input
+  outline: none
   margin: 10px 0px
   font-size: 14px
   &:focus + label
@@ -30,7 +32,13 @@ input
   position: relative
 
 .empty
-  visibility: hidden
+  opacity: 0
+  +transition-property(opacity)
+  +transition-duration(0.5s)
+  +transition-timing-function(ease-in)
 
 .filled
-  visibility: visible
+  opacity: 1
+  +transition-property(opacity)
+  +transition-duration(0.5s)
+  +transition-timing-function(ease-in)
