@@ -17,7 +17,7 @@ h1
 label
   opacity: 0
   position: absolute
-  top: -3px
+  top: 3px
   left: 0px
   font-size: 9px
 
@@ -34,11 +34,13 @@ input
 .empty
   opacity: 0
   +transition-property(opacity)
-  +transition-duration(0.5s)
-  +transition-timing-function(ease-in)
+  +transition-duration(0.3s)
+  top: 3px
+  +transition-property(top)
 
 .filled
   opacity: 1
   +transition-property(opacity)
-  +transition-duration(0.5s)
-  +transition-timing-function(ease-in)
+  +transition-duration(0.3s)
+  top: -3px
+  +transition-property(top)
