@@ -1,1 +1,23 @@
 h1 Sinatra has taken the stage
+
+label for='foo' Foo
+input#foo placeholder='Insert your Foo ...'
+label for='blah' Blah
+input#blah placeholder='Insert your Blah ...'
+
+javascript:
+  $(function() {
+    $('input').keyup(function(){
+      if( !this.value ) {
+        label = $('label[for="'+this.id+'"]')
+        console.log(label)
+        label.addClass('empty')
+        $(label).removeClass('filled')
+      }
+      else{
+        label = $('label[for="'+this.id+'"]')
+        $(label).addClass('filled')
+        $(label).removeClass('empty')
+      }
+    })
+  });

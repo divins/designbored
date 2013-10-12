@@ -67,3 +67,15 @@ h1 {
   text-align: center;
   color: orange;
 }
+
+label {
+  visibility: hidden;
+}
+
+.empty {
+  visibility: hidden;
+}
+
+.filled {
+  visibility: visible;
+}
