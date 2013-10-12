@@ -55,7 +55,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 body {
-  font: 62.5% Arial, Helvetica, sans-serif;
+  font: Arial, Helvetica, sans-serif;
   background: white;
   color: #0d0d0d;
   padding: 50px;
@@ -66,6 +66,12 @@ h1 {
   font-weight: bold;
   text-align: center;
   color: orange;
+  margin: 30px 0;
+}
+
+h3 {
+  font-size: 1.3em;
+  font-weight: bold;
 }
 
 label {
@@ -73,13 +79,17 @@ label {
   position: absolute;
   top: 3px;
   left: 0px;
-  font-size: 9px;
+  font-size: 11px;
+}
+
+p {
+  margin: 10px 0 15px 0;
 }
 
 input {
   outline: none;
   margin: 10px 0px;
-  font-size: 14px;
+  font-size: 15px;
 }
 input:focus + label {
   color: blue;
