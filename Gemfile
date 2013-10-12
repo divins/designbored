@@ -3,7 +3,7 @@ source "https://rubygems.org"
 gem 'rake'
 gem 'sinatra'
 gem 'shotgun'
-gem 'haml'
+gem 'slim'
 
 # Sass & Compass
 gem 'sass'
