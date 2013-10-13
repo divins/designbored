@@ -8,7 +8,11 @@ h1 My front-end playground
 
 javascript:
   $(function() {
-    $('a.source-code').click(function(){
+    $('button.source-code').click(function(){
       $(this).parent().children('.code').toggle()
+    })
+    
+    $('button.code-references').click(function(){
+      $(this).parent().children('ul').toggle()
     })
   });

@@ -69,12 +69,13 @@ h1 {
   margin: 30px 0;
 }
 
-h3 {
-  font-size: 1.3em;
-  font-weight: bold;
+a {
+  color: #4183c4;
+  text-decoration: none;
 }
-h3 a {
-  margin-left: 15px;
+
+p {
+  margin: 10px 0 15px 0;
 }
 
 .snipet {
@@ -87,37 +88,49 @@ h3 a {
   -o-border-radius: 3px;
   border-radius: 3px;
 }
-
-a {
-  color: #4183c4;
-  text-decoration: none;
+.snipet h3 {
+  font-size: 1.3em;
+  font-weight: bold;
 }
-
-.idea-from {
+.snipet h3 a {
+  margin-left: 15px;
+}
+.snipet h3 + p {
+  margin-top: 5px;
+}
+.snipet h4 {
+  font-weight: bold;
+}
+.snipet .idea-from {
   margin: 10px 0 20px 0;
   font-size: 12px;
   color: #333333;
 }
-.idea-from a {
-  color: #4183c4;
+.snipet .idea-from a {
   font-weight: bold;
 }
-
-p {
-  margin: 10px 0 15px 0;
-}
-
-div.source-code {
+.snipet div.source-code, .snipet .references {
   margin-top: 25px;
 }
-div.source-code a {
-  color: #4183c4;
-  font-weight: bold;
-}
-div.source-code .code {
+.snipet div.source-code .code, .snipet div.source-code ul, .snipet .references .code, .snipet .references ul {
   display: none;
-  width: 80%;
   margin-top: 20px;
+}
+.snipet .references ul {
+  margin: 0;
+}
+.snipet .references ul li {
+  padding-left: 10px;
+}
+.snipet .references ul a {
+  font-size: 12px;
+}
+.snipet .demo {
+  margin: 15px 0;
+  padding-left: 35px;
+}
+.snipet h4, .snipet .description, .snipet .idea-from, .snipet .source-code, .snipet .references {
+  padding-left: 15px;
 }
 
 #label-shows-up-when-placeholder-disappears .input {

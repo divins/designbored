@@ -17,11 +17,12 @@ h1
   color: orange
   margin: 30px 0
 
-h3
-  font-size: 1.3em
-  font-weight: bold
-  a
-    margin-left: 15px
+a
+  color: $link-color
+  text-decoration: none
+
+p
+  margin: 10px 0 15px 0
 
 .snipet
   margin: 50px 0
@@ -29,30 +30,46 @@ h3
   padding: 15px
   +border-radius(3px)
 
-a
-  color: $link-color
-  text-decoration: none
+  h3
+    font-size: 1.3em
+    font-weight: bold
+    a
+      margin-left: 15px
 
-.idea-from
-  margin: 10px 0 20px 0
-  font-size: 12px
-  color: #333
-  a
-    color: #4183c4
+  h3 + p
+    margin-top: 5px
+
+
+  h4
     font-weight: bold
 
-p
-  margin: 10px 0 15px 0
+  .idea-from
+    margin: 10px 0 20px 0
+    font-size: 12px
+    color: #333
+    a
+      font-weight: bold
 
-div.source-code
-  margin-top: 25px
-  a
-    color: #4183c4
-    font-weight: bold
-  .code
-    display: none
-    width: 80%
-    margin-top: 20px
+  div.source-code, .references
+    margin-top: 25px
+    .code, ul
+      display: none
+      margin-top: 20px
+
+  .references
+    ul
+      margin: 0
+      li
+        padding-left: 10px
+      a
+        font-size: 12px
+
+  .demo
+    margin: 15px 0
+    padding-left: 35px
+
+  h4, .description, .idea-from, .source-code, .references
+    padding-left: 15px
 
 @import "label_shows_up_when_placeholder_disappears"
 @import 'circle_menu'
