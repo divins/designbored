@@ -27,12 +27,10 @@
       $('input').keyup(function(){
         label = $('label[for="'+this.id+'"]')
         if( !this.value ) {
-          label.addClass('empty')
           label.removeClass('filled')
         }
         else{
           label.addClass('filled')
-          label.removeClass('empty')
         }
       })
     });

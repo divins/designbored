@@ -1,32 +1,25 @@
 #label-shows-up-when-placeholder-disappears
-  label
-    opacity: 0
-    position: absolute
-    top: 0px
-    left: 0px
-    font-size: 11px
-
-  input
-    border: 0
-      bottom: 1px solid #bbb
-    outline: none
-    margin: 10px 0px
-    font-size: 15px
-    &:focus + label
-      color: blue
   .input
     position: relative
 
-  .empty
-    opacity: 0
-    +transition-property(opacity)
-    +transition-duration(0.3s)
-    top: 0px
-    +transition-property(top)
+    label
+      opacity: 0
+      position: absolute
+      top: 0px
+      left: 0px
+      font-size: 11px
+      &.filled
+        opacity: 1
+        +transition-property(opacity)
+        +transition-duration(0.3s)
+        top: -3px
+        +transition-property(top)
 
-  .filled
-    opacity: 1
-    +transition-property(opacity)
-    +transition-duration(0.3s)
-    top: -3px
-    +transition-property(top)
+    input
+      border: 0
+        bottom: 1px solid #bbb
+      outline: none
+      margin: 10px 0px
+      font-size: 15px
+      &:focus + label
+        color: blue

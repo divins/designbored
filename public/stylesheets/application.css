@@ -109,43 +109,17 @@ div.source-code .code {
   margin-top: 20px;
 }
 
-#label-shows-up-when-placeholder-disappears label {
+#label-shows-up-when-placeholder-disappears .input {
+  position: relative;
+}
+#label-shows-up-when-placeholder-disappears .input label {
   opacity: 0;
   position: absolute;
   top: 0px;
   left: 0px;
   font-size: 11px;
 }
-#label-shows-up-when-placeholder-disappears input {
-  border: 0;
-  border-bottom: 1px solid #bbbbbb;
-  outline: none;
-  margin: 10px 0px;
-  font-size: 15px;
-}
-#label-shows-up-when-placeholder-disappears input:focus + label {
-  color: blue;
-}
-#label-shows-up-when-placeholder-disappears .input {
-  position: relative;
-}
-#label-shows-up-when-placeholder-disappears .empty {
-  opacity: 0;
-  -webkit-transition-property: opacity;
-  -moz-transition-property: opacity;
-  -o-transition-property: opacity;
-  transition-property: opacity;
-  -webkit-transition-duration: 0.3s;
-  -moz-transition-duration: 0.3s;
-  -o-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  top: 0px;
-  -webkit-transition-property: top;
-  -moz-transition-property: top;
-  -o-transition-property: top;
-  transition-property: top;
-}
-#label-shows-up-when-placeholder-disappears .filled {
+#label-shows-up-when-placeholder-disappears .input label.filled {
   opacity: 1;
   -webkit-transition-property: opacity;
   -moz-transition-property: opacity;
@@ -160,4 +134,14 @@ div.source-code .code {
   -moz-transition-property: top;
   -o-transition-property: top;
   transition-property: top;
+}
+#label-shows-up-when-placeholder-disappears .input input {
+  border: 0;
+  border-bottom: 1px solid #bbbbbb;
+  outline: none;
+  margin: 10px 0px;
+  font-size: 15px;
+}
+#label-shows-up-when-placeholder-disappears .input input:focus + label {
+  color: blue;
 }
