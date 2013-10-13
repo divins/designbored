@@ -73,6 +73,14 @@ h3 {
   font-size: 1.3em;
   font-weight: bold;
 }
+h3 a {
+  margin-right: 15px;
+}
+
+a {
+  color: #4183c4;
+  text-decoration: none;
+}
 
 .idea-from {
   margin: 10px 0 20px 0;
@@ -104,7 +112,7 @@ div.source-code .code {
 #label-shows-up-when-placeholder-disappears label {
   opacity: 0;
   position: absolute;
-  top: 3px;
+  top: 0px;
   left: 0px;
   font-size: 11px;
 }
@@ -131,7 +139,7 @@ div.source-code .code {
   -moz-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  top: 3px;
+  top: 0px;
   -webkit-transition-property: top;
   -moz-transition-property: top;
   -o-transition-property: top;

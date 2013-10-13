@@ -2,6 +2,8 @@
 @import "compass/utilities"
 @import "compass/css3"
 
+$link-color: #4183c4
+
 body
   font: Arial, Helvetica, sans-serif
   background: #fff
@@ -18,6 +20,12 @@ h1
 h3
   font-size: 1.3em
   font-weight: bold
+  a
+    margin-right: 15px
+
+a
+  color: $link-color
+  text-decoration: none
 
 .idea-from
   margin: 10px 0 20px 0
@@ -44,7 +52,7 @@ div.source-code
   label
     opacity: 0
     position: absolute
-    top: 3px
+    top: 0px
     left: 0px
     font-size: 11px
 
@@ -63,7 +71,7 @@ div.source-code
     opacity: 0
     +transition-property(opacity)
     +transition-duration(0.3s)
-    top: 3px
+    top: 0px
     +transition-property(top)
 
   .filled
