@@ -74,32 +74,54 @@ h3 {
   font-weight: bold;
 }
 
-label {
-  opacity: 0;
-  position: absolute;
-  top: 3px;
-  left: 0px;
-  font-size: 11px;
+.idea-from {
+  margin: 10px 0 20px 0;
+  font-size: 12px;
+  color: #333333;
+}
+.idea-from a {
+  color: #4183c4;
+  font-weight: bold;
 }
 
 p {
   margin: 10px 0 15px 0;
 }
 
-input {
+div.source-code {
+  margin-top: 25px;
+}
+div.source-code a {
+  color: #4183c4;
+  font-weight: bold;
+}
+div.source-code .code {
+  display: none;
+  width: 80%;
+  margin-top: 20px;
+}
+
+#label-shows-up-when-placeholder-disappears label {
+  opacity: 0;
+  position: absolute;
+  top: 3px;
+  left: 0px;
+  font-size: 11px;
+}
+#label-shows-up-when-placeholder-disappears input {
+  border: 0;
+  border-bottom: 1px solid #bbbbbb;
   outline: none;
   margin: 10px 0px;
   font-size: 15px;
 }
-input:focus + label {
+#label-shows-up-when-placeholder-disappears input:focus + label {
   color: blue;
 }
-
-.input {
+#label-shows-up-when-placeholder-disappears .input {
   position: relative;
 }
-
-.empty {
+#label-shows-up-when-placeholder-disappears .empty {
   opacity: 0;
   -webkit-transition-property: opacity;
   -moz-transition-property: opacity;
@@ -115,8 +137,7 @@ input:focus + label {
   -o-transition-property: top;
   transition-property: top;
 }
-
-.filled {
+#label-shows-up-when-placeholder-disappears .filled {
   opacity: 1;
   -webkit-transition-property: opacity;
   -moz-transition-property: opacity;
