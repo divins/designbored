@@ -5,7 +5,7 @@
 $link-color: #4183c4
 
 body
-  font: Arial, Helvetica, sans-serif
+  font: 100% Arial, Helvetica, sans-serif
   background: #fff
   color: #0d0d0d
   padding: 50px
@@ -22,6 +22,12 @@ h3
   font-weight: bold
   a
     margin-left: 15px
+
+.snipet
+  margin: 50px 0
+  border: 1px solid #bbb
+  padding: 15px
+  +border-radius(3px)
 
 a
   color: $link-color
@@ -49,3 +55,4 @@ div.source-code
     margin-top: 20px
 
 @import "label_shows_up_when_placeholder_disappears"
+@import 'circle_menu'

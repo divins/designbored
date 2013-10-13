@@ -55,7 +55,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 body {
-  font: Arial, Helvetica, sans-serif;
+  font: 100% Arial, Helvetica, sans-serif;
   background: white;
   color: #0d0d0d;
   padding: 50px;
@@ -75,6 +75,17 @@ h3 {
 }
 h3 a {
   margin-left: 15px;
+}
+
+.snipet {
+  margin: 50px 0;
+  border: 1px solid #bbbbbb;
+  padding: 15px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
 }
 
 a {

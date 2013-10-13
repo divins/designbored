@@ -7,13 +7,27 @@
     span This concept comes from 
     a href='http://dribbble.com/shots/1254439--GIF-Mobile-Form-Interaction' target='_blank' Matt D. Smith
 
-  .input
-    input#foo placeholder='Foo'
-    label for='foo' Foo
+  .demo
+    .input
+      input#foo placeholder='Foo'
+      label for='foo' Foo
 
-  .input
-    input#bar placeholder='Bar'
-    label for='bar' Bar
+    .input
+      input#bar placeholder='Bar'
+      label for='bar' Bar
+
+    javascript:
+      $(function() {
+        $('input').keyup(function(){
+          label = $('label[for="'+this.id+'"]')
+          if( !this.value ) {
+            label.removeClass('filled')
+          }
+          else{
+            label.addClass('filled')
+          }
+        })
+      });
 
   .source-code
     a href='#' class='source-code' Source code
@@ -21,16 +35,3 @@
       .comments
         p This code has only been tested in Firefox (21) and Chrome (31). I just tried to rush something that worked, so code can (for sure) be improved.
       script src="https://gist.github.com/divins/6960679.js"
-
-  javascript:
-    $(function() {
-      $('input').keyup(function(){
-        label = $('label[for="'+this.id+'"]')
-        if( !this.value ) {
-          label.removeClass('filled')
-        }
-        else{
-          label.addClass('filled')
-        }
-      })
-    });
