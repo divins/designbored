@@ -278,6 +278,7 @@ p {
   border: 0;
   cursor: pointer;
   color: #333333;
+  outline: none;
 }
 #circle-menu #menu-container button:hover {
   color: #4183c4;
