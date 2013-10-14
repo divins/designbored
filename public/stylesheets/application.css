@@ -178,7 +178,11 @@ p {
   margin: auto;
 }
 #circle-menu #menu-container nav#menu {
-  display: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in;
+  -moz-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
   position: relative;
   width: 150px;
   height: 150px;
@@ -246,6 +250,13 @@ p {
   -ms-transform: rotate(360deg) translate(75px) rotate(-360deg);
   -o-transform: rotate(360deg) translate(75px) rotate(-360deg);
   transform: rotate(360deg) translate(75px) rotate(-360deg);
+}
+#circle-menu #menu-container nav#menu.visible {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease-out;
+  -moz-transition: opacity 0.5s ease-out;
+  -o-transition: opacity 0.5s ease-out;
+  transition: opacity 0.5s ease-out;
 }
 #circle-menu #menu-container a, #circle-menu #menu-container button {
   width: 50px;

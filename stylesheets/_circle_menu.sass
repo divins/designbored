@@ -45,8 +45,12 @@
     margin: auto
 
     nav#menu
-      display: none
+      opacity: 0
+      +single-transition(opacity, 0.3s, ease-in)
       +putOnCircle(6, $sphere-size*3, $sphere-size, false)
+      &.visible
+        opacity: 1
+        +single-transition(opacity, 0.5s, ease-out)
     a, button
       width: $sphere-size
       height: $sphere-size

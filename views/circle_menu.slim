@@ -11,30 +11,26 @@
   .demo
     #menu-container
       button#menu-button
-        i.icon-home
+        i.icon-list
       nav#menu
         a href='#'
-          i.icon-cogs
+          i.icon-magnet
         a href='#'
-          i.icon-cogs
+          i.icon-user
         a href='#'
-          i.icon-cogs
+          i.icon-gamepad
         a href='#'
-          i.icon-cogs
+          i.icon-map-marker
         a href='#'
-          i.icon-cogs
+          i.icon-legal
         a href='#'
           i.icon-cogs
 
     javascript:
       $(function() {
         $('button#menu-button').click(function(){
-          $('nav#menu').toggle()
+          $('nav#menu').toggleClass('visible')
         })
-        
-        $('nav#menu').children().each(function() {
-          $(this).addClass('item'+($(this).index() + 1));
-        });
       });
 
 .source-code
