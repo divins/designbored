@@ -193,7 +193,7 @@ p {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
-#circle-menu #menu-container nav#menu a {
+#circle-menu #menu-container nav#menu > * {
   display: block;
   position: absolute;
   top: 50%;
@@ -202,49 +202,49 @@ p {
   height: 50px;
   margin: -25px;
 }
-#circle-menu #menu-container nav#menu a:nth-of-type(1) {
+#circle-menu #menu-container nav#menu > *:nth-of-type(1) {
   -webkit-transform: rotate(0deg) translate(75px) rotate(-0deg);
   -moz-transform: rotate(0deg) translate(75px) rotate(-0deg);
   -ms-transform: rotate(0deg) translate(75px) rotate(-0deg);
   -o-transform: rotate(0deg) translate(75px) rotate(-0deg);
   transform: rotate(0deg) translate(75px) rotate(-0deg);
 }
-#circle-menu #menu-container nav#menu a:nth-of-type(2) {
+#circle-menu #menu-container nav#menu > *:nth-of-type(2) {
   -webkit-transform: rotate(60deg) translate(75px) rotate(-60deg);
   -moz-transform: rotate(60deg) translate(75px) rotate(-60deg);
   -ms-transform: rotate(60deg) translate(75px) rotate(-60deg);
   -o-transform: rotate(60deg) translate(75px) rotate(-60deg);
   transform: rotate(60deg) translate(75px) rotate(-60deg);
 }
-#circle-menu #menu-container nav#menu a:nth-of-type(3) {
+#circle-menu #menu-container nav#menu > *:nth-of-type(3) {
   -webkit-transform: rotate(120deg) translate(75px) rotate(-120deg);
   -moz-transform: rotate(120deg) translate(75px) rotate(-120deg);
   -ms-transform: rotate(120deg) translate(75px) rotate(-120deg);
   -o-transform: rotate(120deg) translate(75px) rotate(-120deg);
   transform: rotate(120deg) translate(75px) rotate(-120deg);
 }
-#circle-menu #menu-container nav#menu a:nth-of-type(4) {
+#circle-menu #menu-container nav#menu > *:nth-of-type(4) {
   -webkit-transform: rotate(180deg) translate(75px) rotate(-180deg);
   -moz-transform: rotate(180deg) translate(75px) rotate(-180deg);
   -ms-transform: rotate(180deg) translate(75px) rotate(-180deg);
   -o-transform: rotate(180deg) translate(75px) rotate(-180deg);
   transform: rotate(180deg) translate(75px) rotate(-180deg);
 }
-#circle-menu #menu-container nav#menu a:nth-of-type(5) {
+#circle-menu #menu-container nav#menu > *:nth-of-type(5) {
   -webkit-transform: rotate(240deg) translate(75px) rotate(-240deg);
   -moz-transform: rotate(240deg) translate(75px) rotate(-240deg);
   -ms-transform: rotate(240deg) translate(75px) rotate(-240deg);
   -o-transform: rotate(240deg) translate(75px) rotate(-240deg);
   transform: rotate(240deg) translate(75px) rotate(-240deg);
 }
-#circle-menu #menu-container nav#menu a:nth-of-type(6) {
+#circle-menu #menu-container nav#menu > *:nth-of-type(6) {
   -webkit-transform: rotate(300deg) translate(75px) rotate(-300deg);
   -moz-transform: rotate(300deg) translate(75px) rotate(-300deg);
   -ms-transform: rotate(300deg) translate(75px) rotate(-300deg);
   -o-transform: rotate(300deg) translate(75px) rotate(-300deg);
   transform: rotate(300deg) translate(75px) rotate(-300deg);
 }
-#circle-menu #menu-container nav#menu a:nth-of-type(7) {
+#circle-menu #menu-container nav#menu > *:nth-of-type(7) {
   -webkit-transform: rotate(360deg) translate(75px) rotate(-360deg);
   -moz-transform: rotate(360deg) translate(75px) rotate(-360deg);
   -ms-transform: rotate(360deg) translate(75px) rotate(-360deg);

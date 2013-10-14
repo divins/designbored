@@ -1,4 +1,3 @@
-
 @mixin putOnCircle( $nb-items, $circle-size, $item-size, $class-for-IE: false )
   $half-item:     $item-size / 2
   $half-parent: $circle-size / 2
@@ -11,7 +10,8 @@
   list-style: none
   +box-sizing(content-box)
   
-  a
+  // In my example could be just: s
+  > *
     display: block
     position: absolute
     top:  50%
