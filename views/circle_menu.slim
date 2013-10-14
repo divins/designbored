@@ -9,6 +9,33 @@
 
   h4 Demo
   .demo
+    #menu-container
+      button#menu-button
+        i.icon-home
+      nav#menu
+        a href='#'
+          i.icon-cogs
+        a href='#'
+          i.icon-cogs
+        a href='#'
+          i.icon-cogs
+        a href='#'
+          i.icon-cogs
+        a href='#'
+          i.icon-cogs
+        a href='#'
+          i.icon-cogs
+
+    javascript:
+      $(function() {
+        $('button#menu-button').click(function(){
+          $('nav#menu').toggle()
+        })
+        
+        $('nav#menu').children().each(function() {
+          $(this).addClass('item'+($(this).index() + 1));
+        });
+      });
 
 .source-code
   button class='source-code' Source code

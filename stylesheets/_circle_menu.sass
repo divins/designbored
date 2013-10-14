@@ -1,0 +1,74 @@
+
+@mixin putOnCircle( $nb-items, $circle-size, $item-size, $class-for-IE: false )
+  $half-item:     $item-size / 2
+  $half-parent: $circle-size / 2
+  
+  position: relative
+  width:  $circle-size
+  height: $circle-size
+  padding: 0
+  border-radius: 50%
+  list-style: none
+  +box-sizing(content-box)
+  
+  a
+    display: block
+    position: absolute
+    top:  50%
+    left: 50%
+    width:  $item-size
+    height: $item-size
+    margin: -$half-item
+  
+    $angle: 360 / $nb-items
+    $rot: 0
+    @for $i from 1 through $nb-items+1
+      // If no support for IE8-
+      @if $class-for-IE == false
+        &:nth-of-type(#{$i})
+          +transform(rotate(#{$rot}deg) translate($half-parent) rotate(-#{$rot}deg))
+        // If support for IE8-  
+      @else
+        &.#{$class-for-IE}#{$i}
+          // If CSS transforms are not supported
+          $mt: sin($rot * pi() / 180) * $half-parent - $half-item
+          $ml: cos($rot * pi() / 180) * $half-parent - $half-item
+          margin: $mt 0 0 $ml
+      $rot: $rot + $angle
+
+#circle-menu
+  #menu-container
+    $sphere-size: 50px
+    position: relative
+    width: $sphere-size*3
+    height: $sphere-size*3
+    margin: auto
+
+    nav#menu
+      display: none
+      +putOnCircle(6, $sphere-size*3, $sphere-size, false)
+    a, button
+      width: $sphere-size
+      height: $sphere-size
+      +border-radius(50%)
+      background-color: orange
+      font-size: 20px
+      text-align: center
+      i
+        line-height: $sphere-size
+    a
+      color: #333
+      &:hover
+        color: $link-color
+    button
+      z-index: 100
+      position: absolute
+      left: 50%
+      margin-left: -$sphere-size/2
+      top: 50%
+      margin-top: -$sphere-size/2
+      border: 0
+      cursor: pointer
+      color: #333
+      &:hover
+        color: $link-color
