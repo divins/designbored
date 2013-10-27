@@ -32,7 +32,15 @@
       function calculateAngle(percent){
         return (360*percent)/100
       }
+      
+      function calculateColor(percent){
+        var r = Math.floor((255 * (100 -percent)) / 100),
+            g = Math.floor((255 * percent) / 100),
+            b = 0;
 
+        return "rgb(" + r + "," + g + "," + b + ")"
+      }
+      
       $('.percent-selector').change(function(){
         selector = $(this)
         percent = selector.val()
@@ -41,12 +49,10 @@
         icon = selector.next().children('.icon').children('span')
         $(icon).text(percent + '%')
 
-        letsDraw(canvas, calculateAngle(percent));
+        letsDraw(canvas, calculateAngle(percent), calculateColor(percent));
       });
 
-      var colors = ["#FFDAB9"];
-
-      function drawSegment(canvas, context, angle) {
+      function drawSegment(canvas, context, angle, color) {
         context.save();
         var centerX = Math.floor(canvas.width / 2);
         var centerY = Math.floor(canvas.height / 2);
@@ -62,7 +68,7 @@
                     startingAngle, endingAngle, false);
         context.closePath();
 
-        context.fillStyle = 'orange'
+        context.fillStyle = color
         context.fill();
 
         context.restore();
@@ -79,10 +85,10 @@
           return sum;
       }
 
-      function letsDraw(canvas, angle){
+      function letsDraw(canvas, angle, color){
         context = canvas.getContext("2d");
         context.clearRect(0,0,400,400)
-        drawSegment(canvas, context, angle);
+        drawSegment(canvas, context, angle, color);
       }
 
 .source-code
@@ -99,3 +105,5 @@
       a href='https://github.com/KrisOlszewski/donut-chart' https://github.com/KrisOlszewski/donut-chart
     li
       a href='http://wickedlysmart.com/how-to-make-a-pie-chart-with-html5s-canvas/' http://wickedlysmart.com/how-to-make-a-pie-chart-with-html5s-canvas/
+    li
+      a href='http://stackoverflow.com/questions/11849308/generate-colors-between-red-and-green-for-an-input-range' http://stackoverflow.com/questions/11849308/generate-colors-between-red-and-green-for-an-input-range
