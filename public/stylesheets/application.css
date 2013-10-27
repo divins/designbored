@@ -342,6 +342,11 @@ p {
   line-height: 80px;
   text-shadow: rgba(0, 0, 0, 0.5) 0 -1px 0;
   color: #aaaaaa;
+}
+#percent-icon .cool-percent-icon .icon i {
+  font-size: 32px;
+}
+#percent-icon .cool-percent-icon .icon span {
   font-size: 22px;
 }
 #percent-icon .cool-percent-icon .outer-shadow {
