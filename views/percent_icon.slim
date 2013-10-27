@@ -40,6 +40,35 @@
 
         return "rgb(" + r + "," + g + "," + b + ")"
       }
+
+      $('.outer-shadow').click(function(e) {
+        posX = $(this).offset().left, posY = $(this).offset().top;
+
+        relX = (e.pageX - posX)
+        relY = (e.pageY - posY)
+
+        elementCenterX = $(this).width()/2
+        elementCenterY = $(this).height()/2
+        relCenterX = (-relX + elementCenterX);
+        relCenterY = (-relY + elementCenterY);
+
+        radiants = Math.atan2(relCenterX, relCenterY);
+
+        angle = radiants * (180/Math.PI);
+        processedAngle = 0;
+        if(angle < 0){
+          processedAngle = -angle;
+        }else{
+          processedAngle = 360-angle;
+        }
+        percent = parseInt((processedAngle/360)*100);
+
+        selector = $(this)
+        canvas = selector.next('canvas')[0]
+        icon = selector.next().next('.icon').children('span')
+
+        letsDraw(percent, canvas, icon)
+      });
       
       $('.percent-selector').change(function(){
         selector = $(this)
@@ -85,7 +114,9 @@
       }
 
 .source-code
-  button class='source-code' Source code
+  button class='source-code' View source code 
+  span  or 
+  a target='_blank' href='http://codepen.io/divins/pen/GIJal' play at CodePen ...
   .code
     .comments
     script src="https://gist.github.com/divins/7180445.js"
