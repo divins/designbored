@@ -40,15 +40,32 @@
 
         return "rgb(" + r + "," + g + "," + b + ")"
       }
+      
+      function handleMouseDown(e, sbar){
+        if (e.button == 0){
+          console.log(sbar); //firebug
+          $(sbar).bind('mousemove', function(event){
+            handleMouseMove(event, sbar);
+          });
+        }
+      }
 
-      $('.outer-shadow').click(function(e) {
-        posX = $(this).offset().left, posY = $(this).offset().top;
+      function handleMouseUp(e, sbar){
+        $(sbar).unbind('mousemove');       
+      }
+
+      function handleMouseMove(e, sbar){
+        // not sure it this will work yet, but unimportant
+        /*console.log(e.pageX);*/
+        posX = $(sbar).offset().left, posY = $(sbar).offset().top;
 
         relX = (e.pageX - posX)
         relY = (e.pageY - posY)
+        
+        console.log(relX + ' , ' + relY)
 
-        elementCenterX = $(this).width()/2
-        elementCenterY = $(this).height()/2
+        elementCenterX = $(sbar).width()/2
+        elementCenterY = $(sbar).height()/2
         relCenterX = (-relX + elementCenterX);
         relCenterY = (-relY + elementCenterY);
 
@@ -63,12 +80,51 @@
         }
         percent = parseInt((processedAngle/360)*100);
 
-        selector = $(this)
+        selector = $(sbar)
         canvas = selector.next('canvas')[0]
         icon = selector.next().next('.icon').children('span')
 
         letsDraw(percent, canvas, icon)
+      }
+
+      $(document).ready(function (){
+        var statusbar = $(".outer-shadow");
+          statusbar.mousedown(function(event){
+            handleMouseDown(event, this);
+          });
+          statusbar.mouseup(function(event){
+            handleMouseUp(event, this);
+          });
       });
+
+      /*$('.outer-shadow').click(function(e) {*/
+      /*  posX = $(this).offset().left, posY = $(this).offset().top;*/
+
+      /*  relX = (e.pageX - posX)*/
+      /*  relY = (e.pageY - posY)*/
+
+      /*  elementCenterX = $(this).width()/2*/
+      /*  elementCenterY = $(this).height()/2*/
+      /*  relCenterX = (-relX + elementCenterX);*/
+      /*  relCenterY = (-relY + elementCenterY);*/
+
+      /*  radiants = Math.atan2(relCenterX, relCenterY);*/
+
+      /*  angle = radiants * (180/Math.PI);*/
+      /*  processedAngle = 0;*/
+      /*  if(angle < 0){*/
+      /*    processedAngle = -angle;*/
+      /*  }else{*/
+      /*    processedAngle = 360-angle;*/
+      /*  }*/
+      /*  percent = parseInt((processedAngle/360)*100);*/
+
+      /*  selector = $(this)*/
+      /*  canvas = selector.next('canvas')[0]*/
+      /*  icon = selector.next().next('.icon').children('span')*/
+
+      /*  letsDraw(percent, canvas, icon)*/
+      /*});*/
       
       $('.percent-selector').change(function(){
         selector = $(this)
