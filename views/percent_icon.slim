@@ -44,13 +44,19 @@
       $('.percent-selector').change(function(){
         selector = $(this)
         percent = selector.val()
-
         canvas = selector.next().children('canvas')[0]
         icon = selector.next().children('.icon').children('span')
+
+        letsDraw(percent, canvas, icon)
+      });
+      
+      function letsDraw(percent, canvas, icon){
         $(icon).text(percent + '%')
 
-        letsDraw(canvas, calculateAngle(percent), calculateColor(percent));
-      });
+        context = canvas.getContext("2d");
+        context.clearRect(0,0,400,400)
+        drawSegment(canvas, context, calculateAngle(percent), calculateColor(percent));
+      }
 
       function drawSegment(canvas, context, angle, color) {
         context.save();
@@ -83,12 +89,6 @@
             sum += a[j];
           }
           return sum;
-      }
-
-      function letsDraw(canvas, angle, color){
-        context = canvas.getContext("2d");
-        context.clearRect(0,0,400,400)
-        drawSegment(canvas, context, angle, color);
       }
 
 .source-code
