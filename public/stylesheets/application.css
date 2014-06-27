@@ -383,25 +383,47 @@ p {
 }
 
 #threed_inventory {
-  @import url(http://fonts.googleapis.com/css?family=Rokkitt);
-  @import url(http://fonts.googleapis.com/css?family=Numans);
+  position: relative;
 }
 #threed_inventory #tips, #threed_inventory h1 {
   color: #444444;
   user-select: none;
   margin: 5px;
 }
-#threed_inventory #transform {
-  width: 300px;
-  height: 300px;
+#threed_inventory .transform {
+  width: 90px;
+  height: 90px;
   background: rgba(25, 207, 251, 0.4);
-  border: 5px solid #19cffb;
+  border: 3px solid #19cffb;
   color: #444444;
-  margin: 50px auto;
   cursor: move;
+  position: absolute;
+}
+#threed_inventory .transform:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+#threed_inventory .transform:nth-child(2) {
+  top: 0;
+  left: 105px;
+}
+#threed_inventory .transform:nth-child(3) {
+  top: 0;
+  left: 210px;
+}
+#threed_inventory .transform:nth-child(4) {
+  top: 105px;
+  left: 0;
+}
+#threed_inventory .transform:nth-child(5) {
+  top: 105px;
+  left: 105px;
+}
+#threed_inventory .transform:nth-child(6) {
+  top: 105px;
+  left: 210px;
 }
 #threed_inventory #css {
-  font-family: Rokkitt;
   background: #002a38;
   border: 1px solid #444444;
   color: #b98d00;

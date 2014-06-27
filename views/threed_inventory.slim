@@ -1,13 +1,18 @@
 #threed_inventory
-  #transform
+  .transform
+  .transform
+  .transform
+  .transform
+  .transform
+  .transform
 
   #css
 
   javascript:
-    var el          = document.getElementById('transform'),
+    var elements    = $('.transform'),
         css         = document.getElementById('css'),
-        width       = el.clientWidth,
-        height      = el.clientHeight,
+        width       = elements[0].clientWidth,
+        height      = elements[0].clientHeight,
         perspective = 500,
         rotateX     = 0,
         rotateY     = 0,
@@ -30,9 +35,20 @@
           xProp = 'rotateX('     + rotateX     + 'deg)',
           yProp = 'rotateY('     + rotateY     + 'deg)',
           sProp = 'scale('       + scaleVal()  +    ')',
-          tProp = 'translate('+-rotateY*2+'px,'+-rotateX+'px)',
-          props = [pProp, xProp, yProp, sProp, tProp].join(' ');
-      el.style[Modernizr.prefixed('transform')] = props;
+          tXProp = 'translateX('     + rotateY*4     + 'px)',
+          tYProp = 'translateY('     + rotateX     + 'px)',
+          props = [pProp, xProp, yProp, sProp, tXProp, tYProp].join(' ');
+
+      $.each(elements, function(index, element){
+        var zTranslate;
+        if(index==0 || index==2 || index==3 || index==5){ zTranslate = '30' }
+        else{ zTranslate = '0' }
+
+        var tZProp = 'translateZ('     + zTranslate     + 'px)'
+
+        props = [pProp, xProp, yProp, sProp, tXProp, tYProp, tZProp].join(' ');
+        element.style[Modernizr.prefixed('transform')] = props;
+      });
       css.innerText = props;
     }
 
@@ -43,22 +59,16 @@
       updateTransform();
     }
 
-    el.addEventListener('mousedown', function(e) {
-      isDown = true;
-      lastX  = e.clientX;
-      lastY  = e.clientY;
-    }, false);
-
-    el.addEventListener('mousewheel', wheel, false);
-    el.addEventListener('DOMMouseScroll', wheel, false);
+    /*el.addEventListener('mousewheel', wheel, false);*/
+    /*el.addEventListener('DOMMouseScroll', wheel, false);*/
 
     document.addEventListener('mousemove', function(e) {
         xMultiplier = 180 / height / scaleVal();
         yMultiplier = 180 / width  / scaleVal();
         rotateX += (lastY - e.clientY) * xMultiplier;
         rotateY += (lastX - e.clientX) * yMultiplier * (reverse ? 1 : -1);
-        rotateX = capRotation(rotateX, 10);
-        rotateY = capRotation(rotateY, 5);
+        rotateX = capRotation(rotateX, 2);
+        rotateY = capRotation(rotateY, 10);
         rotateX  = Math.floor(rotateX % 360);
         rotateY  = Math.floor(rotateY % 360);
         reverse  = Math.abs(Math.floor(rotateX / 90) % 4) > 1;
@@ -73,7 +83,3 @@
       if(rotation <= -cap){ rotation = -cap }
       return rotation;
     }
-
-    document.addEventListener('mouseup', function() {
-      isDown  = false;
-    }, false);
