@@ -1,98 +1,81 @@
 
 #threed_inventory
   #effect-container
-    .transform
-      a href='#'
-        i.icon-map-marker
-    .transform
-      a href='#'
-        i.icon-map-marker
-    .transform
-      a href='#'
-        i.icon-map-marker
-    .transform
-      a href='#'
-        i.icon-map-marker
-    .transform
-      a href='#'
-        i.icon-map-marker
-
-    .transform
-      a href='#'
-        i.icon-map-marker
-    .transform
-      a href='#'
-        i.icon-map-marker
-    .transform
-      a href='#'
-        i.icon-map-marker
-    .transform
-      a href='#'
-        i.icon-map-marker
-    .transform
-      a href='#'
-        i.icon-map-marker
+    -15.times do 
+      .transform
+        a href='#'
+          i.icon-map-marker
 
   #css
 
   javascript:
+    $(function(){
+      var row           = 0,
+          column        = 0,
+          rotation      = 0,
+          reset_counter = 1;
+
+      $.each($('.transform'), function(index, element){
+        if(reset_counter > 5){
+          column = 0
+          row++
+          reset_counter = 1
+        }
+
+        var el = $(element)
+        el.css('left', posX(column));
+        el.css('top', posY(row, column));
+        el.css('-webkit-transform', transformation(row, column));
+
+        column++
+        reset_counter++
+      });
+    });
+
+    function posX(column){
+      return 75*column;
+    }
+
+    function posY(row, column){
+      var offset = 0;
+      if(column == 0 || column == 4){ offset = 20; }
+      if(column == 1 || column == 3){ offset = 10; }
+
+      return (75*row)+offset;
+    }
+
+    function transformation(row, column){
+      var rotateY = 0;
+      var translateZ = 0;
+      if(column == 0){ rotateY = 5;  translateZ = 30; }
+      if(column == 1){ rotateY = 3;   translateZ = 20; }
+      if(column == 2){ rotateY = 0;   translateZ = 5; }
+      if(column == 3){ rotateY = -3;  translateZ = 20; }
+      if(column == 4){ rotateY = -5; translateZ = 30; }
+
+      rotation = 'rotateY(' + rotateY + 'deg)',
+      translation = 'translate3d(0px, 0px, ' + translateZ + 'px)',
+      props = [rotation, translation].join(' ');
+      return props;
+    }
+
     var elements    = $('.transform'),
         css         = document.getElementById('css'),
         width       = elements[0].clientWidth,
         height      = elements[0].clientHeight,
         rotateX     = 0,
         rotateY     = 0,
-        scale       = 100,
         isDown      = false,
         reverse     = false,
         lastX       ,
         lastY       ;
 
-    function scaleVal() {
-      var strScale = scale.toString();
-      if (scale >= 100) {
-        return parseFloat(strScale[0] + '.' +  strScale.slice(1));
-      }
-      return parseFloat('0.' + strScale);
-    }
-
-    function updateTransform() {
-      var xProp = 'rotateX('     + rotateX     + 'deg)',
-          yProp = 'rotateY('     + rotateY     + 'deg)',
-          sProp = 'scale('       + scaleVal()  +    ')',
-          tXProp = 'translateX('     + rotateY*4     + 'px)',
-          tYProp = 'translateY('     + rotateX     + 'px)',
-          props = [xProp, yProp, sProp, tXProp, tYProp].join(' ');
-
-      $.each(elements, function(index, element){
-        var zTranslate;
-        if(index==0 || index==2 || index==3 || index==5){ zTranslate = '30' }
-        else{ zTranslate = '0' }
-
-        var tZProp = 'translateZ('     + zTranslate     + 'px)'
-
-        props = [xProp, yProp, sProp, tXProp, tYProp, tZProp].join(' ');
-        element.style[Modernizr.prefixed('transform')] = props;
-      });
-      css.innerText = props;
-    }
-
-    function wheel(e) {
-      e.preventDefault();
-      var delta = e.wheelDelta || -e.detail;
-      scale += delta > 0 ? 5 : -5;
-      updateTransform();
-    }
-
-    /*el.addEventListener('mousewheel', wheel, false);*/
-    /*el.addEventListener('DOMMouseScroll', wheel, false);*/
-
     document.addEventListener('mousemove', function(e) {
         if(lastX == undefined){lastX = e.clientX;}
         if(lastY == undefined){lastY = e.clientY;}
 
-        xMultiplier = 180 / height / scaleVal();
-        yMultiplier = 180 / width  / scaleVal();
+        xMultiplier = 180 / height;
+        yMultiplier = 180 / width;
         rotateX += (lastY - e.clientY) * xMultiplier;
         rotateY += (lastX - e.clientX) * yMultiplier * (reverse ? 1 : -1);
         rotateX = capRotation(rotateX, 50);

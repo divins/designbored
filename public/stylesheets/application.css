@@ -418,56 +418,6 @@ p {
   position: absolute;
   -webkit-transform-style: preserve-3d;
 }
-#threed_inventory .transform:nth-child(1) {
-  top: 20px;
-  left: 0;
-  -webkit-transform: rotateY(10deg) translate3d(0px, 0px, 40px);
-}
-#threed_inventory .transform:nth-child(2) {
-  top: 10px;
-  left: 75px;
-  -webkit-transform: rotateY(5deg) translate3d(0px, 0px, 20px);
-}
-#threed_inventory .transform:nth-child(3) {
-  top: 0;
-  left: 150px;
-  -webkit-transform: rotateY(0deg) translate3d(0px, 0px, 5px);
-}
-#threed_inventory .transform:nth-child(4) {
-  top: 10px;
-  left: 225px;
-  -webkit-transform: rotateY(-5deg) translate3d(0px, 0px, 20px);
-}
-#threed_inventory .transform:nth-child(5) {
-  top: 20px;
-  left: 300px;
-  -webkit-transform: rotateY(-10deg) translate3d(0px, 0px, 40px);
-}
-#threed_inventory .transform:nth-child(6) {
-  top: 95px;
-  left: 0;
-  -webkit-transform: rotateY(10deg) translate3d(0px, 0px, 40px);
-}
-#threed_inventory .transform:nth-child(7) {
-  top: 85px;
-  left: 75px;
-  -webkit-transform: rotateY(5deg) translate3d(0px, 0px, 20px);
-}
-#threed_inventory .transform:nth-child(8) {
-  top: 75px;
-  left: 150px;
-  -webkit-transform: rotateY(0deg) translate3d(0px, 0px, 5px);
-}
-#threed_inventory .transform:nth-child(9) {
-  top: 85px;
-  left: 225px;
-  -webkit-transform: rotateY(-5deg) translate3d(0px, 0px, 20px);
-}
-#threed_inventory .transform:nth-child(10) {
-  top: 95px;
-  left: 300px;
-  -webkit-transform: rotateY(-10deg) translate3d(0px, 0px, 40px);
-}
 #threed_inventory .transform a {
   border: 3px solid rgba(100, 120, 120, 0.8);
   border: 3px solid rgba(149, 179, 186, 0.9);
@@ -494,9 +444,6 @@ p {
   color: #bddbe2;
   border: 3px solid #bddbe2;
 }
-#threed_inventory .transform a:hover i {
-  -webkit-animation: v-spin 4s infinite linear;
-}
 #threed_inventory #css {
   background: #002a38;
   border: 1px solid #444444;
@@ -504,6 +451,6 @@ p {
   padding: 10px;
 }
 #threed_inventory #css:before {
-  content: "transform: ";
+  content: "Perspective Origin: ";
   color: #d33683;
 }
