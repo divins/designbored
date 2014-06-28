@@ -5,6 +5,11 @@
     .transform
     .transform
     .transform
+
+    .transform
+    .transform
+    .transform
+    .transform
     .transform
 
   #css
@@ -19,8 +24,8 @@
         scale       = 100,
         isDown      = false,
         reverse     = false,
-        lastX       = 0,
-        lastY       = 0;
+        lastX       ,
+        lastY       ;
 
     function scaleVal() {
       var strScale = scale.toString();
@@ -62,12 +67,15 @@
     /*el.addEventListener('DOMMouseScroll', wheel, false);*/
 
     document.addEventListener('mousemove', function(e) {
+        if(lastX == undefined){lastX = e.clientX;}
+        if(lastY == undefined){lastY = e.clientY;}
+
         xMultiplier = 180 / height / scaleVal();
         yMultiplier = 180 / width  / scaleVal();
         rotateX += (lastY - e.clientY) * xMultiplier;
         rotateY += (lastX - e.clientX) * yMultiplier * (reverse ? 1 : -1);
-        rotateX = capRotation(rotateX, 20);
-        rotateY = capRotation(rotateY, 45);
+        rotateX = capRotation(rotateX, 50);
+        rotateY = capRotation(rotateY, 100);
         rotateX  = Math.floor(rotateX % 360);
         rotateY  = Math.floor(rotateY % 360);
         reverse  = Math.abs(Math.floor(rotateX / 90) % 4) > 1;
@@ -82,7 +90,7 @@
 
     function capRotation(rotation, cap){
       var rotation;
-      if(rotation >= cap){ rotation = cap }
+      if(rotation >= cap+100){ rotation = cap+100 }
       if(rotation <= -cap){ rotation = -cap }
       return rotation;
     }

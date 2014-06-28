@@ -8,46 +8,60 @@
       
   #effect-container
     position: relative
-    background: rgba(251, 50, 25, 1)
     width: 300px
     height: 200px
-    -webkit-perspective: 400px
-    -webkit-perspective-origin: 50% 50%
+    -webkit-perspective: 500px
+    -webkit-perspective-origin: center
     margin: auto
 
   .transform
-    width: 90px
-    height: 90px
+    width: 65px
+    height: 65px
     background: rgba(25, 207, 251, 0.4)
     border: 3px solid rgba(25, 207, 251, 1)
     color: #444
-    cursor: move
     position: absolute
-    perspective: 100px
     &:nth-child(1)
-      top: 10px
+      top: 20px
       left: 0
-      -webkit-transform: rotateY(10deg) translate3d(0px, 0px, 60px)
+      -webkit-transform: rotateY(10deg) translate3d(0px, 0px, 40px)
     &:nth-child(2)
-      top: 0
-      left: 105px
-      -webkit-transform: rotateY(0deg) translate3d(0px, 0px, 30px)
-    &:nth-child(3)
       top: 10px
-      left: 210px
-      -webkit-transform: rotateY(-10deg) translate3d(0px, 0px, 60px)
+      left: 75px
+      -webkit-transform: rotateY(5deg) translate3d(0px, 0px, 20px)
+    &:nth-child(3)
+      top: 0
+      left: 150px
+      -webkit-transform: rotateY(0deg) translate3d(0px, 0px, 5px)
     &:nth-child(4)
-      top: 115px
-      left: 0
-      -webkit-transform: rotateY(10deg) translate3d(0px, 0px, 60px)
+      top: 10px
+      left: 225px
+      -webkit-transform: rotateY(-5deg) translate3d(0px, 0px, 20px)
     &:nth-child(5)
-      top: 105px
-      left: 105px
-      -webkit-transform: rotateY(0deg) translate3d(0px, 0px, 30px)
+      top: 20px
+      left: 300px
+      -webkit-transform: rotateY(-10deg) translate3d(0px, 0px, 40px)
+
     &:nth-child(6)
-      top: 115px
-      left: 210px
-      -webkit-transform: rotateY(-10deg) translate3d(0px, 0px, 60px)
+      top: 95px
+      left: 0
+      -webkit-transform: rotateY(10deg) translate3d(0px, 0px, 40px)
+    &:nth-child(7)
+      top: 85px
+      left: 75px
+      -webkit-transform: rotateY(5deg) translate3d(0px, 0px, 20px)
+    &:nth-child(8)
+      top: 75px
+      left: 150px
+      -webkit-transform: rotateY(0deg) translate3d(0px, 0px, 5px)
+    &:nth-child(9)
+      top: 85px
+      left: 225px
+      -webkit-transform: rotateY(-5deg) translate3d(0px, 0px, 20px)
+    &:nth-child(10)
+      top: 95px
+      left: 300px
+      -webkit-transform: rotateY(-10deg) translate3d(0px, 0px, 40px)
       
   #css
     background: #002A38
