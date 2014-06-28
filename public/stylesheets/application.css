@@ -390,6 +390,15 @@ p {
   user-select: none;
   margin: 5px;
 }
+#threed_inventory #effect-container {
+  position: relative;
+  background: #fb3219;
+  width: 300px;
+  height: 200px;
+  -webkit-perspective: 400px;
+  -webkit-perspective-origin: 50% 50%;
+  margin: auto;
+}
 #threed_inventory .transform {
   width: 90px;
   height: 90px;
@@ -398,30 +407,37 @@ p {
   color: #444444;
   cursor: move;
   position: absolute;
+  perspective: 100px;
 }
 #threed_inventory .transform:nth-child(1) {
-  top: 0;
+  top: 10px;
   left: 0;
+  -webkit-transform: rotateY(10deg) translate3d(0px, 0px, 60px);
 }
 #threed_inventory .transform:nth-child(2) {
   top: 0;
   left: 105px;
+  -webkit-transform: rotateY(0deg) translate3d(0px, 0px, 30px);
 }
 #threed_inventory .transform:nth-child(3) {
-  top: 0;
+  top: 10px;
   left: 210px;
+  -webkit-transform: rotateY(-10deg) translate3d(0px, 0px, 60px);
 }
 #threed_inventory .transform:nth-child(4) {
-  top: 105px;
+  top: 115px;
   left: 0;
+  -webkit-transform: rotateY(10deg) translate3d(0px, 0px, 60px);
 }
 #threed_inventory .transform:nth-child(5) {
   top: 105px;
   left: 105px;
+  -webkit-transform: rotateY(0deg) translate3d(0px, 0px, 30px);
 }
 #threed_inventory .transform:nth-child(6) {
-  top: 105px;
+  top: 115px;
   left: 210px;
+  -webkit-transform: rotateY(-10deg) translate3d(0px, 0px, 60px);
 }
 #threed_inventory #css {
   background: #002a38;

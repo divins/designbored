@@ -1,10 +1,11 @@
 #threed_inventory
-  .transform
-  .transform
-  .transform
-  .transform
-  .transform
-  .transform
+  #effect-container
+    .transform
+    .transform
+    .transform
+    .transform
+    .transform
+    .transform
 
   #css
 
@@ -13,7 +14,6 @@
         css         = document.getElementById('css'),
         width       = elements[0].clientWidth,
         height      = elements[0].clientHeight,
-        perspective = 500,
         rotateX     = 0,
         rotateY     = 0,
         scale       = 100,
@@ -31,13 +31,12 @@
     }
 
     function updateTransform() {
-      var pProp = 'perspective(' + perspective +  'px)',
-          xProp = 'rotateX('     + rotateX     + 'deg)',
+      var xProp = 'rotateX('     + rotateX     + 'deg)',
           yProp = 'rotateY('     + rotateY     + 'deg)',
           sProp = 'scale('       + scaleVal()  +    ')',
           tXProp = 'translateX('     + rotateY*4     + 'px)',
           tYProp = 'translateY('     + rotateX     + 'px)',
-          props = [pProp, xProp, yProp, sProp, tXProp, tYProp].join(' ');
+          props = [xProp, yProp, sProp, tXProp, tYProp].join(' ');
 
       $.each(elements, function(index, element){
         var zTranslate;
@@ -46,7 +45,7 @@
 
         var tZProp = 'translateZ('     + zTranslate     + 'px)'
 
-        props = [pProp, xProp, yProp, sProp, tXProp, tYProp, tZProp].join(' ');
+        props = [xProp, yProp, sProp, tXProp, tYProp, tZProp].join(' ');
         element.style[Modernizr.prefixed('transform')] = props;
       });
       css.innerText = props;
@@ -67,14 +66,18 @@
         yMultiplier = 180 / width  / scaleVal();
         rotateX += (lastY - e.clientY) * xMultiplier;
         rotateY += (lastX - e.clientX) * yMultiplier * (reverse ? 1 : -1);
-        rotateX = capRotation(rotateX, 2);
-        rotateY = capRotation(rotateY, 10);
+        rotateX = capRotation(rotateX, 20);
+        rotateY = capRotation(rotateY, 45);
         rotateX  = Math.floor(rotateX % 360);
         rotateY  = Math.floor(rotateY % 360);
         reverse  = Math.abs(Math.floor(rotateX / 90) % 4) > 1;
         lastX    = e.clientX;
         lastY    = e.clientY;
-        updateTransform();
+        /*updateTransform();*/
+
+        var perspectiveOrigin = rotateY+'% '+rotateX+'%';
+        $('#effect-container')[0].style['-webkit-perspective-origin'] = perspectiveOrigin;
+        css.innerText = perspectiveOrigin;
     }, false);
 
     function capRotation(rotation, cap){
