@@ -394,15 +394,10 @@ p {
   }
 }
 
-#threed_inventory {
+#deadspace-inventory {
   position: relative;
 }
-#threed_inventory #tips, #threed_inventory h1 {
-  color: #444444;
-  user-select: none;
-  margin: 5px;
-}
-#threed_inventory #effect-container {
+#deadspace-inventory #effect-container {
   position: relative;
   width: 300px;
   height: 200px;
@@ -411,15 +406,14 @@ p {
   -webkit-transform-style: preserve-3d;
   margin: auto;
 }
-#threed_inventory .transform {
+#deadspace-inventory .transform {
   width: 65px;
   height: 65px;
   background: rgba(70, 90, 90, 0.7);
   position: absolute;
   -webkit-transform-style: preserve-3d;
 }
-#threed_inventory .transform a {
-  border: 3px solid rgba(100, 120, 120, 0.8);
+#deadspace-inventory .transform a {
   border: 3px solid rgba(149, 179, 186, 0.9);
   color: #394448;
   font-size: 24px;
@@ -431,7 +425,7 @@ p {
   -webkit-transform-style: preserve-3d;
   position: relative;
 }
-#threed_inventory .transform a i {
+#deadspace-inventory .transform a i {
   -webkit-transform: translate3d(0px, 0px, 1px);
   position: absolute;
   top: 50%;
@@ -440,17 +434,7 @@ p {
   margin-left: -8px;
   display: inline-block;
 }
-#threed_inventory .transform a:hover {
+#deadspace-inventory .transform a:hover {
   color: #bddbe2;
   border: 3px solid #bddbe2;
-}
-#threed_inventory #css {
-  background: #002a38;
-  border: 1px solid #444444;
-  color: #b98d00;
-  padding: 10px;
-}
-#threed_inventory #css:before {
-  content: "Perspective Origin: ";
-  color: #d33683;
 }
