@@ -10,6 +10,7 @@
   h4 Demo
   .demo
     .container
+      h3#foo Test
       #effect-container
         -15.times do 
           .transform
@@ -78,6 +79,15 @@
             lastX       ,
             lastY       ;
 
+        window.ondevicemotion = function(event) {
+          var x = event.accelerationIncludingGravity.x;  
+          var y = event.accelerationIncludingGravity.y;  
+          var z = event.accelerationIncludingGravity.z;
+
+          var accData = x+'%, '+ y +'%'+ z +'%';
+          $('#foo').html()
+        }
+
         document.addEventListener('mousemove', function(e) {
             if(lastX == undefined){lastX = e.clientX;}
             if(lastY == undefined){lastY = e.clientY;}
@@ -96,6 +106,7 @@
 
             var perspectiveOrigin = rotateY+'% '+rotateX+'%';
             $('#effect-container')[0].style['-webkit-perspective-origin'] = perspectiveOrigin;
+            $('h3#foo').html(perspectiveOrigin);
         }, false);
 
         function capRotation(rotation, cap){
