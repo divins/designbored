@@ -1,0 +1,101 @@
+#accelerometer
+  h3 
+    span Accelerometer
+    a href='http://designbored.herokuapp.com/#accelerometer' [ Link ]
+  p.description This is a test to show data retrieved from a mobile accelerometer. The main idea is to use it in the DeadSpace Inventory demo.
+  p.idea-from
+    span 
+      b All code has been copied from: 
+    a href='http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source' target='_blank' Alberto Sarullo blog
+
+  h4 Demo
+  .demo
+    .container
+      #content
+        #sphere style="top: 0px; left: 0px;"
+      ul
+        li 
+          span acceleration x: 
+          span#accelerationX
+        li 
+          span acceleration y: 
+          span#accelerationY
+        li 
+          span acceleration z: 
+          span#accelerationZ
+        li 
+          span rotation alpha: 
+          span#rotationAlpha
+        li 
+          span rotation beta: 
+          span#rotationBeta
+        li 
+          span rotation gamma: 
+          span#rotationGamma
+
+      span 
+        span test: 
+        span#test
+
+      javascript:
+        var x = 0, y = 0,
+        vx = 0, vy = 0,
+        ax = 0, ay = 0;
+
+        var sphere = document.getElementById("sphere");
+
+        if (window.DeviceMotionEvent != undefined) {
+          window.ondevicemotion = function(e) {
+            ax = event.accelerationIncludingGravity.x * 5;
+            ay = event.accelerationIncludingGravity.y * 5;
+            document.getElementById("accelerationX").innerHTML = e.accelerationIncludingGravity.x;
+            document.getElementById("accelerationY").innerHTML = e.accelerationIncludingGravity.y;
+            document.getElementById("accelerationZ").innerHTML = e.accelerationIncludingGravity.z;
+
+            if ( e.rotationRate ) {
+              document.getElementById("rotationAlpha").innerHTML = e.rotationRate.alpha;
+              document.getElementById("rotationBeta").innerHTML = e.rotationRate.beta;
+              document.getElementById("rotationGamma").innerHTML = e.rotationRate.gamma;
+            }   
+          }
+
+          setInterval( function() {
+            var landscapeOrientation = window.innerWidth/window.innerHeight > 1;
+            if ( landscapeOrientation) {
+              vx = vx + ay;
+              vy = vy + ax;
+            } else {
+              vy = vy - ay;
+              vx = vx + ax;
+            }
+            vx = vx * 0.98;
+            vy = vy * 0.98;
+            y = parseInt(y + vy / 50);
+            x = parseInt(x + vx / 50);
+
+            boundingBoxCheck();
+
+            sphere.style.top = y + "px";
+            sphere.style.left = x + "px";
+          }, 25);
+        } 
+
+
+        function boundingBoxCheck(){
+          if (x<0) { x = 0; vx = -vx; }
+          if (y<0) { y = 0; vy = -vy; }
+          if (x>document.documentElement.clientWidth-20) { x = document.documentElement.clientWidth-20; vx = -vx; }
+          if (y>document.documentElement.clientHeight-20) { y = document.documentElement.clientHeight-20; vy = -vy; }
+        }
+
+// Hi Pete,
+// to check che orientation of the iPad (ex: portrait upside-down) you can use the window.orientation property.
+// You can also use the orientationchange event to trigger some action when orientation change:
+// 
+// window.addEventListener(‘orientationchange’, updateOrientation, false);
+// function updateOrientation() {
+// var orientation = window.orientation;
+// switch (orientation) {
+// // case …
+// }
+// }

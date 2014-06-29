@@ -10,33 +10,6 @@
   h4 Demo
   .demo
     .container
-      h3#foo Test
-      #content
-        #sphere style="top: 0px; left: 0px;"
-      ul
-        li 
-          span acceleration x: 
-          span#accelerationX
-        li 
-          span acceleration y: 
-          span#accelerationY
-        li 
-          span acceleration z: 
-          span#accelerationZ
-        li 
-          span rotation alpha: 
-          span#rotationAlpha
-        li 
-          span rotation beta: 
-          span#rotationBeta
-        li 
-          span rotation gamma: 
-          span#rotationGamma
-
-      span 
-        span test: 
-        span#test
-
       #effect-container
         -15.times do 
           .transform
@@ -105,15 +78,6 @@
             lastX       ,
             lastY       ;
 
-        window.ondevicemotion = function(event) {
-          var x = event.accelerationIncludingGravity.x;  
-          var y = event.accelerationIncludingGravity.y;  
-          var z = event.accelerationIncludingGravity.z;
-
-          var accData = x+'%, '+ y +'%'+ z +'%';
-          $('#foo').html()
-        }
-
         document.addEventListener('mousemove', function(e) {
             if(lastX == undefined){lastX = e.clientX;}
             if(lastY == undefined){lastY = e.clientY;}
@@ -132,7 +96,6 @@
 
             var perspectiveOrigin = rotateY+'% '+rotateX+'%';
             $('#effect-container')[0].style['-webkit-perspective-origin'] = perspectiveOrigin;
-            $('h3#foo').html(perspectiveOrigin);
         }, false);
 
         function capRotation(rotation, cap){
@@ -140,58 +103,6 @@
           if(rotation >= cap+100){ rotation = cap+100 }
           if(rotation <= -cap){ rotation = -cap }
           return rotation;
-        }
-
-      javascript:
-        var x = 0, y = 0,
-        vx = 0, vy = 0,
-        ax = 0, ay = 0;
-
-        var sphere = document.getElementById("sphere");
-
-        if (window.DeviceMotionEvent != undefined) {
-          window.ondevicemotion = function(e) {
-            ax = event.accelerationIncludingGravity.x * 5;
-            ay = event.accelerationIncludingGravity.y * 5;
-            document.getElementById("accelerationX").innerHTML = e.accelerationIncludingGravity.x;
-            document.getElementById("accelerationY").innerHTML = e.accelerationIncludingGravity.y;
-            document.getElementById("accelerationZ").innerHTML = e.accelerationIncludingGravity.z;
-
-            if ( e.rotationRate ) {
-              document.getElementById("rotationAlpha").innerHTML = e.rotationRate.alpha;
-              document.getElementById("rotationBeta").innerHTML = e.rotationRate.beta;
-              document.getElementById("rotationGamma").innerHTML = e.rotationRate.gamma;
-            }   
-          }
-
-          setInterval( function() {
-            var landscapeOrientation = window.innerWidth/window.innerHeight > 1;
-            if ( landscapeOrientation) {
-              vx = vx + ay;
-              vy = vy + ax;
-            } else {
-              vy = vy - ay;
-              vx = vx + ax;
-            }
-            vx = vx * 0.98;
-            vy = vy * 0.98;
-            y = parseInt(y + vy / 50);
-            x = parseInt(x + vx / 50);
-            
-            boundingBoxCheck();
-            
-            sphere.style.top = y + "px";
-            sphere.style.left = x + "px";
-            
-          }, 25);
-        } 
-
-
-        function boundingBoxCheck(){
-          if (x<0) { x = 0; vx = -vx; }
-          if (y<0) { y = 0; vy = -vy; }
-          if (x>document.documentElement.clientWidth-20) { x = document.documentElement.clientWidth-20; vx = -vx; }
-          if (y>document.documentElement.clientHeight-20) { y = document.documentElement.clientHeight-20; vy = -vy; }
         }
 
 .source-code

@@ -446,3 +446,12 @@ p {
   color: #bddbe2;
   border: 3px solid #bddbe2;
 }
+
+#accelerometer #sphere {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  -webkit-radius: 50px;
+  background-color: blue;
+}
