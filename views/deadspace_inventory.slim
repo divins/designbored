@@ -79,24 +79,28 @@
             lastY       ;
 
         document.addEventListener('mousemove', function(e) {
-            if(lastX == undefined){lastX = e.clientX;}
-            if(lastY == undefined){lastY = e.clientY;}
+          if(lastX == undefined){lastX = e.clientX;}
+          if(lastY == undefined){lastY = e.clientY;}
 
-            xMultiplier = 180 / height;
-            yMultiplier = 180 / width;
-            rotateX += (lastY - e.clientY) * xMultiplier;
-            rotateY += (lastX - e.clientX) * yMultiplier * (reverse ? 1 : -1);
-            rotateX = capRotation(rotateX, 50);
-            rotateY = capRotation(rotateY, 100);
-            rotateX  = Math.floor(rotateX % 360);
-            rotateY  = Math.floor(rotateY % 360);
-            reverse  = Math.abs(Math.floor(rotateX / 90) % 4) > 1;
-            lastX    = e.clientX;
-            lastY    = e.clientY;
+          xMultiplier = 180 / height;
+          yMultiplier = 180 / width;
+          rotateX += (lastY - e.clientY) * xMultiplier;
+          rotateY += (lastX - e.clientX) * yMultiplier * (reverse ? 1 : -1);
+          lastX    = e.clientX;
+          lastY    = e.clientY;
 
-            var perspectiveOrigin = rotateY+'% '+rotateX+'%';
-            $('#effect-container')[0].style['-webkit-perspective-origin'] = perspectiveOrigin;
+          changePerspective(rotateX, rotateY)
         }, false);
+
+        function changePerspective(x, y){
+          rotateX = capRotation(rotateX, 50);
+          rotateY = capRotation(rotateY, 100);
+          rotateX  = Math.floor(rotateX % 360);
+          rotateY  = Math.floor(rotateY % 360);
+          reverse  = Math.abs(Math.floor(rotateX / 90) % 4) > 1;
+          var perspectiveOrigin = rotateY+'% '+rotateX+'%';
+          $('#effect-container')[0].style['-webkit-perspective-origin'] = perspectiveOrigin;
+        }
 
         function capRotation(rotation, cap){
           var rotation;
@@ -104,6 +108,35 @@
           if(rotation <= -cap){ rotation = -cap }
           return rotation;
         }
+
+      javascript:
+        var x = 0, y = 0,
+        vx = 0, vy = 0,
+        ax = 0, ay = 0;
+
+        if (window.DeviceMotionEvent != undefined) {
+          window.ondevicemotion = function(e) {
+            ax = event.accelerationIncludingGravity.x * 5;
+            ay = event.accelerationIncludingGravity.y * 5;
+          }
+
+          setInterval( function() {
+            var landscapeOrientation = window.innerWidth/window.innerHeight > 1;
+            if ( landscapeOrientation) {
+              vx = vx + ay;
+              vy = vy + ax;
+            } else {
+              vy = vy - ay;
+              vx = vx + ax;
+            }
+            vx = vx * 0.98;
+            vy = vy * 0.98;
+            y = parseInt(y + vy / 50);
+            x = parseInt(x + vx / 50);
+
+            changePerspective(x, y);
+          }, 25);
+        } 
 
 .source-code
   button class='source-code' Source code
