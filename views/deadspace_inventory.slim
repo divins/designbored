@@ -10,6 +10,17 @@
   h4 Demo
   .demo
     .container
+      ul
+        li 
+          span acceleration x: 
+          span#accelerationX2
+        li 
+          span acceleration y: 
+          span#accelerationY2
+        li 
+          span acceleration z: 
+          span#accelerationZ2
+
       #effect-container
         -15.times do 
           .transform
@@ -118,6 +129,9 @@
           window.ondevicemotion = function(e) {
             ax = event.accelerationIncludingGravity.x * 5;
             ay = event.accelerationIncludingGravity.y * 5;
+            document.getElementById("accelerationX2").innerHTML = e.accelerationIncludingGravity.x;
+            document.getElementById("accelerationY2").innerHTML = e.accelerationIncludingGravity.y;
+            document.getElementById("accelerationZ2").innerHTML = e.accelerationIncludingGravity.z;
           }
 
           setInterval( function() {
