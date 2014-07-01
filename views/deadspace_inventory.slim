@@ -12,14 +12,11 @@
     .container
       ul
         li 
-          span acceleration x: 
-          span#accelerationX2
+          span Perspective X:
+          span#perspectiveX
         li 
-          span acceleration y: 
-          span#accelerationY2
-        li 
-          span acceleration z: 
-          span#accelerationZ2
+          span Perspective Y:
+          span#perspectiveY
 
       #effect-container
         -15.times do 
@@ -104,6 +101,8 @@
         }, false);
 
         function changePerspective(x, y){
+          document.getElementById("perspectiveX").innerHTML = x;
+          document.getElementById("perspectiveY").innerHTML = y;
           rotateX = capRotation(rotateX, 50);
           rotateY = capRotation(rotateY, 100);
           rotateX  = Math.floor(rotateX % 360);
@@ -120,36 +119,41 @@
           return rotation;
         }
 
-        var x = 0, y = 0,
-        vx = 0, vy = 0,
-        ax = 0, ay = 0;
+        // var x = 0, y = 0,
+        // vx = 0, vy = 0,
+        // ax = 0, ay = 0;
 
-        if (window.DeviceMotionEvent != undefined) {
-          window.ondevicemotion = function(e) {
-            ax = event.accelerationIncludingGravity.x * 5;
-            ay = event.accelerationIncludingGravity.y * 5;
-            document.getElementById("accelerationX2").innerHTML = e.accelerationIncludingGravity.x;
-            document.getElementById("accelerationY2").innerHTML = e.accelerationIncludingGravity.y;
-            document.getElementById("accelerationZ2").innerHTML = e.accelerationIncludingGravity.z;
-          }
+        // if (window.DeviceMotionEvent != undefined) {
+        //   window.ondevicemotion = function(e) {
+        //     ax = event.accelerationIncludingGravity.x * 5;
+        //     ay = event.accelerationIncludingGravity.y * 5;
+        //     document.getElementById("accelerationX2").innerHTML = e.accelerationIncludingGravity.x;
+        //     document.getElementById("accelerationY2").innerHTML = e.accelerationIncludingGravity.y;
+        //     document.getElementById("accelerationZ2").innerHTML = e.accelerationIncludingGravity.z;
+        //   }
 
-          setInterval( function() {
-            var landscapeOrientation = window.innerWidth/window.innerHeight > 1;
-            if ( landscapeOrientation) {
-              vx = vx + ay;
-              vy = vy + ax;
-            } else {
-              vy = vy - ay;
-              vx = vx + ax;
-            }
-            vx = vx * 0.98;
-            vy = vy * 0.98;
-            y = parseInt(y + vy / 50);
-            x = parseInt(x + vx / 50);
+        //   setInterval( function() {
+        //     var newAX, newAY;
+        //     var landscapeOrientation = window.innerWidth/window.innerHeight > 1;
+        //     if ( landscapeOrientation) {
+        //       vx = vx + ay;
+        //       vy = vy + ax;
+        //       newAX = ax;
+        //       newAY = ay;
+        //     } else {
+        //       vy = vy - ay;
+        //       vx = vx + ax;
+        //       newAX = ax;
+        //       newAY = -ay;
+        //     }
+        //     vx = vx * 0.98;
+        //     vy = vy * 0.98;
+        //     y = parseInt(y + vy / 50);
+        //     x = parseInt(x + vx / 50);
 
-            changePerspective(x, y);
-          }, 25);
-        } 
+        //     changePerspective(newAX*10, newAY*10);
+        //   }, 25);
+        // } 
 
 .source-code
   button class='source-code' Source code
